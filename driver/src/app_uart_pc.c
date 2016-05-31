@@ -23,7 +23,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define DEFAULT_PORT_NAME   "COM1"
+#define DEFAULT_PORT_NAME   "/dev/ttyO1"
 
 #define UART_BAUD_RATE_MAX_INDEX 16
 

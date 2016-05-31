@@ -10,8 +10,9 @@
 project(ble_driver CXX)
 
 # Boost specific settings (link statically (on MinGW) with the multithreaded libraries)
-if(MINGW OR APPLE)
+if(MINGW OR APPLE OR ANDROID)
     set(Boost_USE_STATIC_LIBS ON)
+    set(Boost_USE_STATIC_RUNTIME ON)
 endif()
 
 if(APPLE)
@@ -22,7 +23,8 @@ endif(APPLE)
 set(Boost_USE_MULTITHREADED ON)
 
 # Find the necessary boost components on system
-find_package ( Boost 1.54.0 REQUIRED COMPONENTS thread system regex date_time chrono )
+#find_package ( Boost 1.55.0 REQUIRED COMPONENTS thread system regex date_time chrono )
+find_host_package ( Boost 1.55.0 REQUIRED COMPONENTS thread system regex date_time chrono )
 
 # Filename for .def for S130
 set(s130_target_def_file s130_nrf51_ble_driver.def)
@@ -265,7 +267,7 @@ if(MINGW)
     set(s130_src_list ${s130_src_list} ${CMAKE_CURRENT_BINARY_DIR}/version.rc)
 endif(MINGW)
 
-add_library(s130_nrf51_ble_driver SHARED ${s130_src_list})
+add_library(s130_nrf51_ble_driver STATIC ${s130_src_list})
 
 # Specify libraries to link serialization library with
 target_link_libraries (s130_nrf51_ble_driver PRIVATE ${Boost_LIBRARIES})

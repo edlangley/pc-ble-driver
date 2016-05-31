@@ -54,7 +54,7 @@ BOOST_AUTO_TEST_CASE( testPortNameSet )
     portNames["COM5"] = NRF_SUCCESS;
     portNames["COM99"] = NRF_SUCCESS;
     portNames["COM1000"] = NRF_SUCCESS;
-    portNames["/dev/ttyS0"] = NRF_SUCCESS;
+    portNames["/dev/ttyO1"] = NRF_SUCCESS;
 
     for(map<string, int>::iterator portName = portNames.begin(); portName != portNames.end(); ++portName)
     {
@@ -190,7 +190,7 @@ BOOST_AUTO_TEST_CASE( testAppUartInit )
     app_uart_port_name_set("");
     BOOST_CHECK_EQUAL((uint32_t)NRF_SUCCESS, app_uart_init(0, 0, &genericEventHandler, APP_IRQ_PRIORITY_HIGH, 0));
     aut->getCommunicationParameters();
-    BOOST_CHECK_EQUAL("COM1", aut->comParameters.portName);
+    BOOST_CHECK_EQUAL("/dev/ttyO1", aut->comParameters.portName);
 
     app_uart_close(0);
 

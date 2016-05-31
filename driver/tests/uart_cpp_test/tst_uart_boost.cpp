@@ -54,7 +54,7 @@ struct SuiteFixture
         port1 = getenv("TESTSERIALPORT1");
         port2 = getenv("TESTSERIALPORT2");
 
-        if(port1 == NULL) port1 = (char*)"COM1";
+        if(port1 == NULL) port1 = (char*)"/dev/ttyO1";
         if(port2 == NULL) port2 = (char*)"COM2";
     }
 

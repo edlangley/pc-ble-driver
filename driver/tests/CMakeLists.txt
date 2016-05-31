@@ -13,16 +13,13 @@ include_directories (
     common
 )
 
-# Must set this to be able to run Boost Test Framework on Linux. This is because the Linux build of BLE Driver is
-# dynamic and not static.
-if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
-    add_definitions(-DBOOST_TEST_DYN_LINK)
-endif()
-
 set(Boost_USE_MULTITHREADED ON)
+set(Boost_USE_STATIC_LIBS ON)
+set(Boost_USE_STATIC_RUNTIME ON)
 
 # Find the necessary boost components on system
-find_package ( Boost 1.54.0 REQUIRED COMPONENTS system filesystem thread unit_test_framework chrono date_time )
+#find_package ( Boost 1.55.0 REQUIRED COMPONENTS system filesystem thread unit_test_framework chrono date_time )
+find_host_package ( Boost 1.55.0 REQUIRED COMPONENTS system filesystem thread unit_test_framework chrono date_time atomic )
 
 add_compile_options(
     -g
@@ -160,6 +157,7 @@ add_executable(
 
 target_link_libraries(
     timer_cpp_test
+    ${Boost_ATOMIC_LIBRARY}
     ${Boost_LIBRARIES}
     ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}
 )

@@ -13,7 +13,7 @@
 #include "uart_settings.h"
 
 UartSettings::UartSettings()
-    : portName("COM1"),
+    : portName("/dev/ttyO1"),
       baudRate(0),
       flowControl(UartFlowControlNone),
       parity(UartParityNone),

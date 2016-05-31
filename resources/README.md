@@ -39,7 +39,7 @@ The Driver library has been compiled with MinGW GCC tool chain (i686-w64-mingw32
 **Linux (Ubuntu 14.04.2 LTS):**
 The Driver library is compiled with the C/C++ compiler provided by the system. The Driver library requires that the Boost libraries packaged with the distribution are installed on the system.
 Command to install boost:
-sudo apt-get install boost1.54
+sudo apt-get install boost1.55
 
 **OSX:**
 The Driver library is compiled with the C/C++ compiler provided by the system.
