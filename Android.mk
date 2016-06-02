@@ -2,7 +2,7 @@ LOCAL_PATH := $(ANDROID_BUILD_TOP)/$(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := libpc-ble-driver
+LOCAL_MODULE := libs120_nrf51_ble_driver
 LIB_OUT_DIR := $(LOCAL_PATH)/build
 NRF51_SDK_PATH := $(LOCAL_PATH)/nRF51_SDK_8.1.0_b6ed55f
 
@@ -37,5 +37,5 @@ LOCAL_MODULE_TAGS := eng
 module_class := SHARED_LIBRARIES
 LOCAL_MODULE_CLASS := $(module_class)
 LOCAL_MODULE_SUFFIX := .so
-LOCAL_SRC_FILES := build/driver/libs130_nrf51_ble_driver.so
+LOCAL_SRC_FILES := build/driver/$(LOCAL_MODULE).so
 include $(BUILD_PREBUILT)

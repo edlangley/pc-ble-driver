@@ -94,13 +94,13 @@ class TestZipContent(unittest.TestCase):
                               'driver/include/nrf_svc.h',
                               'driver/include/sd_rpc.h',
 
-                              'driver/lib/{0}s130_nrf51_ble_driver{1}'.format(dynamic_library_prefix, dynamic_library_suffix),
+                              'driver/lib/{0}s120_nrf51_ble_driver{1}'.format(dynamic_library_prefix, dynamic_library_suffix),
 
-                              'firmware/connectivity_115k2_with_s130_1.0.0.hex',
+                              'firmware/connectivity_115k2_with_s120_1.0.0.hex',
 
                               'python/ble_driver_util.py',
-                              'python/s130_nrf51_ble_driver.py',
-                              'python/_s130_nrf51_ble_driver{0}'.format(python_bindings_suffix),
+                              'python/s120_nrf51_ble_driver.py',
+                              'python/_s120_nrf51_ble_driver{0}'.format(python_bindings_suffix),
                               'python/examples/advertising/main.py',
                               'python/examples/heart_rate_monitor/main.py',
                               'python/examples/heart_rate_collector/main.py',
@@ -108,7 +108,7 @@ class TestZipContent(unittest.TestCase):
                               'python/examples/multi_link/main.py']
 
         if platform.system() != 'Darwin':
-          expected_file_list.extend(['firmware/connectivity_1m_with_s130_1.0.0.hex'])
+          expected_file_list.extend(['firmware/connectivity_1m_with_s120_1.0.0.hex'])
 
         if platform.system() == 'Windows':
             expected_file_list.extend(['driver/examples/advertising/msvc/advertising.vcxproj',
@@ -116,7 +116,7 @@ class TestZipContent(unittest.TestCase):
                                        'driver/examples/heart_rate_monitor/msvc/heart_rate_monitor.vcxproj',
                                        'driver/examples/heart_rate_relay/msvc/heart_rate_relay.vcxproj',
                                        'driver/examples/multi_link/msvc/multi_link.vcxproj',
-                                       'driver/lib/s130_nrf51_ble_driver.lib'])
+                                       'driver/lib/s120_nrf51_ble_driver.lib'])
         else:
             expected_file_list.extend(['driver',
                                        'driver/examples',

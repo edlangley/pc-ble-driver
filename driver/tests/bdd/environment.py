@@ -27,12 +27,12 @@ def before_all(context):
 
     s110 = "connectivity_115k2_with_s110_7.1.0.hex"
     s120 = "connectivity_115k2_with_s120_1.0.1.hex"
-    s130 = "connectivity_115k2_with_s130_1.0.0.hex"
+    s120 = "connectivity_115k2_with_s120_1.0.0.hex"
 
     context.firmware = {
         'S110': os.path.join(context.resources_dir, s110),
         'S120': os.path.join(context.resources_dir, s120),
-        'S130': os.path.join(context.resources_dir, s130),
+        'S130': os.path.join(context.resources_dir, s120),
         'blinky': os.path.join(root_dir, 'driver', 'tests', 'resources', 'blinky_nrf51422_xxac.hex')
     }
 
