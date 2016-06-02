@@ -14,8 +14,7 @@ include_directories (
 )
 
 set(Boost_USE_MULTITHREADED ON)
-set(Boost_USE_STATIC_LIBS ON)
-set(Boost_USE_STATIC_RUNTIME ON)
+set(Boost_USE_STATIC_LIBS OFF)
 
 # Find the necessary boost components on system
 #find_package ( Boost 1.55.0 REQUIRED COMPONENTS system filesystem thread unit_test_framework chrono date_time )

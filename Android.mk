@@ -2,8 +2,8 @@ LOCAL_PATH := $(ANDROID_BUILD_TOP)/$(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := pc-ble-driver
-LIB_OUT_DIR := $(ANDROID_PRODUCT_OUT)/obj/STATIC_LIBRARIES/$(LOCAL_MODULE)
+LOCAL_MODULE := libpc-ble-driver
+LIB_OUT_DIR := $(LOCAL_PATH)/build
 NRF51_SDK_PATH := $(LOCAL_PATH)/nRF51_SDK_8.1.0_b6ed55f
 
 ifeq ($CMAKE,)
@@ -28,15 +28,14 @@ else
     -DBoost_DEBUG=ON \
 	$(LOCAL_PATH) 2>&1)
     $(info $(CMAKE_OUTPUT))
+	MAKE_OUTPUT := $(shell cd $(LIB_OUT_DIR) && make)
 endif
 
 LOCAL_MODULE_TAGS := debug eng
-LOCAL_SHARED_LIBRARIES := boost_system
 LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/driver/inc $(LOCAL_PATH)/driver/inc_override $(NRF51_SDK_PATH)/components/softdevice/s130/headers
-
-include $(BUILD_STATIC_LIBRARY)
-
-all_modules:
-	echo TESTS
-	cd $(LIB_OUT_DIR) && make
-	cp $(LIB_OUT_DIR)/driver/libs130_nrf51_ble_driver.a $(LIB_OUT_DIR)_intermediates/$(LOCAL_MODULE).a
+LOCAL_MODULE_TAGS := eng
+module_class := SHARED_LIBRARIES
+LOCAL_MODULE_CLASS := $(module_class)
+LOCAL_MODULE_SUFFIX := .so
+LOCAL_SRC_FILES := build/driver/libs130_nrf51_ble_driver.so
+include $(BUILD_PREBUILT)
