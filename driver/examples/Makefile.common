@@ -4,7 +4,7 @@ INCLUDEPATHS += -I../../../include
 
 LIB_PATHS += -L../../../lib
 
-LIBS += -ls120_nrf51_ble_driver
+LIBS += -ls130_nrf51_ble_driver
 
 CFLAGS += $(INCLUDEPATHS)
 CFLAGS += -Wall
@@ -32,7 +32,7 @@ ifeq ($(OS),Windows_NT)
 all: build copy_dll
 
 copy_dll:
-	xcopy /DY ..\..\..\lib\s120_nrf51_ble_driver.dll
+	xcopy /DY ..\..\..\lib\s130_nrf51_ble_driver.dll
 else
 all: build
 endif

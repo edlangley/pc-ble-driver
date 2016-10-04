@@ -48,14 +48,14 @@ endif()
 # Since the C++ preprocessor will try to search the local directory first before searching
 # other directories the we have to remove the files below. That way the preprocessor will use
 # nrf_svc.h from override folder instead.
-file(REMOVE ${nrf51_sdk}/components/softdevice/s120/headers/nrf_svc.h) # included by ${nrf51_sdk_components}/softdevice/s120/headers/ble_gap.h
+file(REMOVE ${nrf51_sdk}/components/softdevice/s130/headers/nrf_svc.h) # included by ${nrf51_sdk_components}/softdevice/s130/headers/ble_gap.h
 
 # S130 specific include paths
 set (nrf51_sdk_components ${nrf51_sdk}/components)
 set (nrf51_sdk_codecs ${nrf51_sdk_components}/serialization/application/codecs)
-set (nrf51_sdk_codecs_s120 ${nrf51_sdk_codecs}/s120)
+set (nrf51_sdk_codecs_s130 ${nrf51_sdk_codecs}/s130)
 
-set (s120_includes
+set (s130_includes
     ${repo_root_path}/driver/inc
     ${repo_root_path}/driver/inc_override
     ${nrf51_sdk}/framework/cunit/include_override
@@ -75,10 +75,10 @@ set (s120_includes
     ${nrf51_sdk_components}/toolchain
     ${nrf51_sdk_components}/device
     ${nrf51_sdk_components}/drivers_nrf/hal
-    ${nrf51_sdk_codecs_s120}/serializers
-    ${nrf51_sdk_components}/serialization/common/struct_ser/s120
-    ${nrf51_sdk_components}/softdevice/s120 #needed for '#include "headers/nrf_soc.h"'
-    ${nrf51_sdk_components}/softdevice/s120/headers
+    ${nrf51_sdk_codecs_s130}/serializers
+    ${nrf51_sdk_components}/serialization/common/struct_ser/s130
+    ${nrf51_sdk_components}/softdevice/s130 #needed for '#include "headers/nrf_soc.h"'
+    ${nrf51_sdk_components}/softdevice/s130/headers
 )
 
 # Add subdirectories

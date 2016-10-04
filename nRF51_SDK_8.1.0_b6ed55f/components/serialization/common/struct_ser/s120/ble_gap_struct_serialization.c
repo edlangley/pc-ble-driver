@@ -1266,7 +1266,7 @@ uint32_t ble_gap_opt_scan_req_report_t_dec(void const * const p_buf,
     uint32_t                        err_code          = NRF_SUCCESS;
     uint8_t                         byte;
 
-    err_code = uint8_t_dec((uint8_t *)p_buf, buf_len, p_index, &byte);
+    err_code = uint8_t_dec(p_buf, buf_len, p_index, &byte);
     SER_ASSERT(err_code == NRF_SUCCESS, err_code);
     p_scan_req_report->enable = byte & 0x01;
 
